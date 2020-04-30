@@ -18,7 +18,7 @@ class HelloController extends Controller
         $param = [
             'message' => 'ログイン',
         ];
-        return view('hello.auth', $param);
+        return view('hello/auth', $param);
     }
 
     public function postAuth(AuthRequest $request)
@@ -31,7 +31,7 @@ class HelloController extends Controller
         } else {
             $msg = 'ログインに失敗しました。';
         }
-          return view('hello.auth', ['message' => $msg]);
+          return view('hello/auth', ['message' => $msg]);
     }
 
     public function logout(Request $request)

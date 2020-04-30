@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 use App\Http\middleware\HelloMiddleware;
 
-Route::get('hello/auth', 'HelloController@getAuth');
-Route::post('hello/auth', 'HelloController@postAuth');
+Route::get('/', 'HelloController@getAuth');
+Route::post('/', 'HelloController@postAuth');
 
 Route::get('/auth/logout', 'Auth\LoginController@logout');
 
