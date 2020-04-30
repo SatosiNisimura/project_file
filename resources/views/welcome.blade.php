@@ -64,6 +64,10 @@
         </style>
     </head>
     <body>
+    	  <form action="/posts/guest" method="post">
+                {{ csrf_field() }}
+                <div><input type="submit" class="btn btn-success" style="padding: 14px;" value="ログインせず利用する"/></div>
+            </form>
         <h1>hello world</h1>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
