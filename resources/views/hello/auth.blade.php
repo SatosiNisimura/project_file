@@ -17,7 +17,7 @@
             <hr><br>
         </div>
         <table>
-            <form action="/hello/auth" method="post">
+            <form action="/" href="{{ route('user') }}" method="post">
                 {{ csrf_field() }}
                 <dl>
                     <p style="text-align: center;">メールアドレス</p>

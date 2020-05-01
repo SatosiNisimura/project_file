@@ -22,7 +22,7 @@
         @if (Auth::check())
             <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="/auth/logout">ログアウト</a></div>
         @else
-            <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="/hello/auth">ログイン</a></div>
+            <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="{{ route('user') }}">ログイン</a></div>
         @endif
         @if (Auth::check())
             <p style="font-weight: bold;">こんにちは、{{$user->name}}さん。</p>

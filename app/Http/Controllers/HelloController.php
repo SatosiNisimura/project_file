@@ -38,7 +38,7 @@ class HelloController extends Controller
     {
         $items = NULL;
         Auth::logout();
-        return view('hello.index');
+        return view('hello/auth');
     }
 
 

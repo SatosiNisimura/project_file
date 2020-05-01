@@ -17,7 +17,7 @@
 
 use App\Http\middleware\HelloMiddleware;
 
-Route::get('/', 'HelloController@getAuth');
+Route::get('/', 'HelloController@getAuth')->name('user');
 Route::post('/', 'HelloController@postAuth');
 
 Route::get('/auth/logout', 'Auth\LoginController@logout');
