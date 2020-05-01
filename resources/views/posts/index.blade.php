@@ -20,7 +20,7 @@
 
     <div id="content">
         @if (Auth::check())
-            <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="/auth/logout">ログアウト</a></div>
+            <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="/auth/logout">ログアウト </a></div>
         @else
             <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="{{ route('user') }}">ログイン</a></div>
         @endif
