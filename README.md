@@ -35,4 +35,4 @@
 
 ### インフラ
 
-* MySQL、Nginx
+* MySQL、Nginx# server
