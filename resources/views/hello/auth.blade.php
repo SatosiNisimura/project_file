@@ -48,7 +48,7 @@
                 メールアドレス：laravel@example.com
                 パスワード：111111
             </p>
-            <p style="font-size: 18px;">※投稿内容は5チャンネルより抜粋してます。</p>
+            <p style="font-size: 18px;">※ 投稿内容は5チャンネルより抜粋してます。</p>
         </div>
         </table>
     </div>

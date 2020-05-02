@@ -23,7 +23,7 @@
 </head>
 <body>
     <div id="head" style="background: url(images/bg_head.png) bottom left repeat-x #106eb7;">
-        <h1 class="page__header" style="font-weight: bolder; letter-spacing: 0px;">BBS 掲示板
+        <h1 class="page__header" style="font-weight: bolder; letter-spacing: 0px; font-family: sans-serif;">BBS 掲示板
             <p class="btn btn-light" style="float: right"><a class="page__header__buttom" href="/user">ユーザー登録</a></p>
         </h1>
     </div>

@@ -3,6 +3,10 @@
 「project＿file」は、某ネット掲示板のようなアプリです。
 コードの可読性を高くすることを目標にして作ってみました。
 
+本番環境はherokuでデプロイしています。
+
+URL: 
+
 ## 機能一覧:
 
 * 記事一覧表示機能
@@ -35,4 +39,9 @@
 
 ### インフラ
 
-* MySQL、Nginx# server
+* MySQL、Nginx
+
+### その他
+
+* bootstrap4
+* font-awesome
