@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Person.Add')
+@section('title', 'welcome! | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -15,7 +15,7 @@
     <div id="content">
         <form method="POST" action="{{ route('posts.store') }}">
         @csrf
-            <p style="font-weight: bold;">投稿を新規作成する。</p>
+            <p style="font-weight: bold; font-family: sans-serif;">投稿を新規作成する。</p>
             <br>
             <fieldset class="mb-4">
                 <div class="form-group">

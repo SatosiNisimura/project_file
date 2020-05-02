@@ -8,7 +8,7 @@
     tr th a:active {color: white;}
     p.display {display: inline-block;}
 </style>
-@section('title', 'Person.Add')
+@section('title', 'welcome! | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -20,7 +20,7 @@
 <div id="wrap">
     <div id="content">
         <br>
-        <h2 class="h5 mb-4" style="font-size: 25px; font-weight: bolder;">結果：{{$input}}</h2><br><br>
+        <h2 class="h5 mb-4" style="font-size: 25px; font-weight: bolder; font-family: sans-serif;">結果：{{$input}}</h2><br><br>
         @foreach ($posts as $post)
             <div class="card mb-4">
                 <div class="card-header">

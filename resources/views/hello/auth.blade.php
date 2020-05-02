@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'ユーザー認証')
+@section('title', 'ユーザー認証 | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -13,7 +13,7 @@
   
     <div id="content">
         <div id="lead"><br>
-            <p style="text-align: center; font-size: 28px; font-weight: bolder;">{{$message}}</p><br>
+            <p style="text-align: center; font-size: 28px; font-weight: bolder; font-family: sans-serif;">{{$message}}</p><br>
             <hr><br>
         </div>
         <table>
@@ -47,7 +47,8 @@
             <p style="font-size: 18px;">シーディングデータ<br>
                 メールアドレス：laravel@example.com
                 パスワード：111111
-            </p><br>
+            </p>
+            <p style="font-size: 18px;">※投稿内容は5チャンネルより抜粋してます。</p>
         </div>
         </table>
     </div>

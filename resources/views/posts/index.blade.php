@@ -8,7 +8,7 @@
     tr th a:active {color: white;}
     p.display {display: inline-block;}
 </style>
-@section('title', 'Person.Add')
+@section('title', 'welocme! | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -25,7 +25,7 @@
             <div style="text-align: right"><a class="btn btn-success" style="padding: 12px;" href="{{ route('user') }}">ログイン</a></div>
         @endif
         @if (Auth::check())
-            <p style="font-weight: bold;">こんにちは、{{$user->name}}さん。</p>
+            <p style="font-weight: bold; font-family: sans-serif;">こんにちは、{{$user->name}}さん。</p>
             <p><a class="btn btn-lg btn-primary" style="padding: 10px; padding-left: 70px; padding-right: 70px;" href="{{ route('posts.create') }}">
                 投稿を新規作成する 
             </a></p>
@@ -39,7 +39,7 @@
                 </div>
             </form>
         @else
-            <p style="font-weight: bold;">こんにちはゲストさん。</p>
+            <p style="font-weight: bold; font-family: sans-serif;">こんにちはゲストさん。</p>
         @endif
         <br>
         <div class="container mt-4">

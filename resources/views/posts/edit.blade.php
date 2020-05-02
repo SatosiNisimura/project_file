@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Person.Add')
+@section('title', 'welcome! | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -11,7 +11,7 @@
 
 <div id="wrap"> 
     <div id="content">
-        <p style="font-weight: bold;">投稿内容を編集する。</p><br>
+        <p style="font-weight: bold; font-family: sans-serif;">投稿内容を編集する。</p><br>
         <form method="POST" action="{{ route('posts.update', ['post' => $post]) }}">
             @csrf
             @method('PUT')

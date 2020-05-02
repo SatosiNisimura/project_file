@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Person.Add')
+@section('title', 'ユーザー登録 | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -11,8 +11,8 @@
 <div id="wrap">
     <p>入力画面 -> 確認画面 -><span class="btn btn-danger" style="padding: 0px;"> 完了画面</span></p>
     <div id="content">
-        <p style="font-weight: bolder;">ユーザー登録が完了しました。</p><br>
-        <p><a href="/hello/auth" class="btn btn-success">ログインする</a></p>
+        <p style="font-weight: bolder; font-family: sans-serif;">ユーザー登録が完了しました。</p><br>
+        <p><a class="btn btn-success" href="{{ route('user') }}">ログインする</a></p>
     </div>
 </div>
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Person.Add')
+@section('title', 'ユーザー登録 | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -11,7 +11,7 @@
     <div id="wrap">
         <p><span class="btn btn-danger" style="padding: 0px;">入力画面</span> -> 確認画面 -> 完了画面</p>
         <div id="content">
-    		    <p style="font-weight: bolder;">次のフォームに必要事項をご記入ください。</p>
+    		    <p style="font-weight: bolder; font-family: sans-serif;">次のフォームに必要事項をご記入ください。</p>
             @if (count($errors) > 0)
                 <p>入力に問題があります。再入力してください。</p>
             @endif<br>

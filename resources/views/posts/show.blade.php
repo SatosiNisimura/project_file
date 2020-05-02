@@ -1,6 +1,6 @@
 @extends('layouts.helloapp')
 
-@section('title', 'Person.Add')
+@section('title', 'welcome! | BBS掲示板')
 
 @section('menubar')
     @parent
@@ -13,16 +13,16 @@
     </div>-->
     <div id="content">
         <section>
-            <p style="font-weight: bold;">投稿のタイトル</p>
+            <p style="font-weight: bold; font-family: sans-serif;">投稿のタイトル</p>
             <p class="mb-5">
                 {!! nl2br(e($post->title)) !!}
             </p><br>
-            <p style="font-weight: bold;">投稿の本文</p>
+            <p style="font-weight: bold; font-family: sans-serif;">投稿の本文</p>
             <p class="mb-5" style="font-size: 15px;">
                 {!! nl2br(e($post->body)) !!}
             </p><hr>
             <br>
-            <p style="font-weight: bold;">投稿に対してコメントする</p>
+            <p style="font-weight: bold; font-family: sans-serif;">投稿に対してコメントする</p>
             <br>
             <form class="mb-4" method="POST" action="{{ route('comments.store') }}">
                 @csrf
