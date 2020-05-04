@@ -12,29 +12,35 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function testBasicTest()
+    /*public function testBasicTest()
     {
         $response = $this->get('/');
 
         $response->assertStatus(200);
     }
+    */
+
+    /*
+     1.docker-compose exec php bashでphpコンテナに入る
+     2.php vendor/bin/phpunitで実行
+    */
 
 
     /**
      * @test
      */
-    public function hello_authにGETメソッドでアクセスできる()
+    public function _にGETメソッドでアクセスできる()
     {
-        $response = $this->get('hello/auth');
+        $response = $this->get('/');
         $response->assertStatus(200);
     }
 
     /**
      * @test
      */
-    public function hello_authにPOSTメソッドでアクセスできる()
+    public function _にPOSTメソッドでアクセスできる()
     {
-        $response = $this->post('hello/auth');
+        $response = $this->post('/');
         $response->assertStatus(302);
     }
 
@@ -52,6 +58,7 @@ class ExampleTest extends TestCase
      */
     public function userにgetメソッドでアクセスできる()
     {
+        //$this->withoutExceptionHandling();
         $response = $this->get('user');
         $response->assertStatus(200);
     }
@@ -66,24 +73,24 @@ class ExampleTest extends TestCase
     }
 
     /**
-    * @test
-    */
-     public function user_thanksにgetメソッドでアクセスできる()
-     {
-         $response = $this->get('user/thanks');
-         $response->assertStatus(302);
-     }
-
-     /**
      * @test
      */
-      public function user_thanksにpostメソッドでアクセスできる()
-      {
-          $response = $this->post('user/thanks');
-          $response->assertStatus(302);
-      }
+    public function user_thanksにgetメソッドでアクセスできる()
+    {
+        $response = $this->get('user/thanks');
+        $response->assertStatus(302);
+    }
 
-     /**
+    /**
+     * @test
+     */
+    public function user_thanksにpostメソッドでアクセスできる()
+    {
+        $response = $this->post('user/thanks');
+        $response->assertStatus(302);
+    }
+
+    /**
      * @test
      */
     public function postsにgetメソッドでアクセスできる()
@@ -92,10 +99,16 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
+    /**
+     * @test
+     */
+    public function postsにpostメソッドでアクセスできる()
+    {
+        $response = $this->post('posts');
+        $response->assertStatus(302);
+    }
 
-
-
-     /**
+    /**
      * @test
      */
     public function posts_findにgetメソッドでアクセスできる()
@@ -103,7 +116,8 @@ class ExampleTest extends TestCase
         $response = $this->get('posts/find');
         $response->assertStatus(200);
     }
-     /**
+
+    /**
      * @test
      */
     public function posts_findにpostメソッドでアクセスできる()
@@ -112,25 +126,21 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
-
-
-
-
     /**
-    * @test
-    */
-   public function postsにpostメソッドでアクセスできる()
-   {
-       $response = $this->post('posts');
-       $response->assertStatus(302);
-   }
-
-    /**
-    * @test
-    */
+     * @test
+     */
     public function commentsにpostメソッドでアクセスできる()
     {
        $response = $this->post('comments');
+       $response->assertStatus(302);
+    }
+
+    /**
+     * @test
+     */
+    public function posts_guestにpostメソッドでアクセスできる()
+    {
+       $response = $this->post('posts/guest');
        $response->assertStatus(302);
     }
 }
