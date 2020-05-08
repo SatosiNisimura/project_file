@@ -17,6 +17,6 @@ jobs:
       # - image: circleci/mysql:5.7-ram        -画像：circleci / mysql：5.7-ram
       #
       # - image: redis:2.8.19        -画像：redis：2.8.19
-  test:
-    override:
-      - ./test.sh
+    test:
+      override:
+        - ./test.sh
