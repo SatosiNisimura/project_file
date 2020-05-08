@@ -1,36 +1,60 @@
+# PHP CircleCI 2.0 configuration file        PHP CircleCI 2.0設定ファイル
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details        詳細はhttps://circleci.com/docs/2.0/language-php/をチェック
+#
 version: 2
 jobs:
- deploy_app:
-   working_directory: ~/sample
-   docker:
-     - image: circleci/node:10-browsers
-   steps:
-     - checkout
-     - run:
-         name: node_modulesのインストール
-         command: |
-           yarn
-     - run:
-         name: テスト
-         command: |
-           yarn lint
-     - run:
-         name: ビルド
-         command: |
-           yarn run build
-     - run:
-         name: firebase-toolsのインストール
-         command: |
-           yarn add --dev firebase-tools
-     - run:
-         name: firebaseへデプロイ
-         command: |
-           ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
-workflows:
- version: 2
- build-deploy:
-   jobs:
-     - deploy_app:
-         filters:
-           branches:
-             only: master
+  build:
+    docker:
+
+      - run: echo 'Hello world!'
+      # Specify the version you desire here        ここで、必要なバージョンを指定します
+      - image: circleci/php:7.1-node-browsers
+
+      # Specify service dependencies here if necessary        必要に応じてここにサービスの依存関係を指定します
+      # CircleCI maintains a library of pre-built images        CircleCIは、事前に構築されたイメージのライブラリを維持します
+      # documented at https://circleci.com/docs/2.0/circleci-images/        https://circleci.com/docs/2.0/circleci-images/で文書化
+      # Using the RAM variation mitigates I/O contention        RAM変動緩和するI / Oの競合を使用します
+      # for database intensive operations.        データベースを集中的に使用する操作の場合。
+      # - image: circleci/mysql:5.7-ram        -画像：circleci / mysql：5.7-ram
+      #
+      # - image: redis:2.8.19        -画像：redis：2.8.19
+
+    steps:
+      - checkout
+
+      - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev        PHP CircleCI 2.0コンフィギュレーションファイル＃PHP CircleCI 2.0設定ファイル須藤はaptインストールします：zlib1g-devののlibsqlite3-devの
+      - run: sudo docker-php-ext-install zip  
+
+      # Download and cache dependencies    依存関係をダウンロードしてキャッシュする
+      - restore_cache:
+          keys:
+            # "composer.lock" can be used if it is committed to the repo        リポジトリにコミットされている場合、「composer.lock」を使用できます
+            - v1-dependencies-{{ checksum "composer.json" }}
+            # fallback to using the latest cache if no exact match is found        完全一致が見つからない場合、最新のキャッシュを使用するようにフォールバック
+            - v1-dependencies-
+
+      - run: composer install -n --prefer-dist
+
+      - save_cache:
+          key: v1-dependencies-{{ checksum "composer.json" }}
+          paths:
+            - ./vendor
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "package.json" }}
+            - node-v1-
+      - run: yarn install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+      # prepare the database        データベースを準備する
+      - run: touch storage/testing.sqlite
+      #- run: php artisan migrate --env=testing --database=sqlite_testing --force    
+
+      # run tests with phpunit or codecept        PHPUnitのかcodeceptと実行テスト
+      #- run: ./vendor/bin/phpunit
+      #- run: ./vendor/bin/codecept build
+      #- run: ./vendor/bin/codecept run
