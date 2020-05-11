@@ -32,7 +32,7 @@ class HelloRequest extends FormRequest
             'name' => 'required',
             'email' => 'email',
             'password' => 'required|min:6',
-            'image' => 'dimensions:width=320, height=240'
+            /*'image' => 'dimensions:width=320, height=240'*/
         ];
         $inputs = $request->all();
         return view('user.check', [
@@ -43,11 +43,11 @@ class HelloRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'ニックネームを入力してください。',
+            'name.required' => '氏名を入力してください。',
             'email.email' => '正しいメールアドレスを入力してください。',
             'password.required' => 'パスワードを入力してください。',
             'password.min' => 'パスワードを6文字以上で入力してください。',
-            'image.dimensions' => '恐れ入りますが、画像を改めて指定してください。'
+            /*'image.dimensions' => '恐れ入りますが、画像を改めて指定してください。'*/
 
         ];
     }
