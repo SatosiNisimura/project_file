@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    docker:
+    docker:    #Dockerイメージの設定
       - image: circleci/php:7.3-node-browsers
         environment:
           - APP_DEBUG: true
@@ -10,7 +10,7 @@ jobs:
           - DB_DATABASE: test_sample01
           - DB_USERNAME: root
 
-      - image: circleci/mysql:5.7-ram
+      - image: circleci/mysql:5.7-ram    #データベースの設定
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: true
           - MYSQL_DATABASE: test_sample01
@@ -18,8 +18,8 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt update       
-      - run: sudo docker-php-ext-install pdo_mysql
+      - run: sudo apt update       #パッケージの情報を最新のものに変更
+      - run: sudo docker-php-ext-install pdo_mysql    #MySQL用のPDO拡張をインストール
 
       - restore_cache:    # キャッシュを復帰
           keys:
@@ -33,8 +33,7 @@ jobs:
           paths:
             - ./vendor
 
-      - run: echo "APP_KEY=" > .env.testing
-      - run: php artisan key:generate
+      - run: echo "APP_KEY=" > .env.testing    
+      - run: php artisan key:generate    #APP_KEYだけを書いた.env.testingを作成してgenerateする
       - run: php artisan migrate
-
-      - run: ./vendor/bin/phpunit
+      - run: ./vendor/bin/phpunit    #テスト実行
