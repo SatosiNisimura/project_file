@@ -43,5 +43,6 @@ URL:
 
 ### その他
 
+* CircleCI
 * bootstrap4
 * font-awesome
