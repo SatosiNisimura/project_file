@@ -18,17 +18,17 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt update
+      - run: sudo apt update       
       - run: sudo docker-php-ext-install pdo_mysql
 
-      - restore_cache:
+      - restore_cache:    # キャッシュを復帰
           keys:
             - v1-dependencies-{{ checksum "composer.json" }}
             - v1-dependencies-
 
       - run: composer install -n --prefer-dist
 
-      - save_cache:
+      - save_cache:    #キャッシュを保存
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
